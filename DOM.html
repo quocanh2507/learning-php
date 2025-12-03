@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ví dụ DOM</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 15px;
+        background-color: #f4f4f4;
+      }
+
+      .login-form {
+        max-width: 500px;
+        margin: 35px auto;
+        padding: 30px;
+        border: 1px solid #2812ed;
+        border-radius: 8px;
+        background-color: rgb(18, 209, 243);
+        box-shadow: 0 5px 10px rgba(28, 156, 215, 0.1);
+      }
+      .login-form input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .login-form button {
+        background-color: #403d3d;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 15px;
+      }
+      #message {
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 4px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .error {
+        color: red;
+        background-color: #ffe8e8;
+      }
+      .success {
+        color: green;
+        background-color: #e8ffe8;
+      }
+
+      #text {
+        color: blue;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 10px 0;
+        padding: 5px;
+        border: 1px solid #ccc;
+      }
+      .highlight {
+        color: red;
+        font-weight: bold;
+      }
+      #img-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+      #image {
+        width: 500px;
+        height: auto;
+        border: 2px solid #333;
+      }
+      hr {
+        margin: 30px 0;
+        border: 0;
+        border-top: 2px dashed #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DOM</h1>
+
+    <h2>1. Style (Lấy,gán)</h2>
+    <p id="text">Văn bản ban đầu</p>
+    <button onclick="getStyle()">✍️ Lấy style</button>
+    <button onclick="setStyle()">🎨 Gán style</button>
+    <p id="result">Kết quả sau khi gán:</p>
+
+    <hr />
+
+    <h2>2. Thao tác DOM</h2>
+    <h1 id="title">Hello</h1>
+    <p class="description">Văn bản 1</p>
+    <p class="description">Văn bản 2</p>
+    <button onclick="changeText()">🔄 Change</button>
+    <ul id="list">
+      <li>Phần tử 1</li>
+      <li>Phần tử 2</li>
+      <li>Phần tử 3</li>
+    </ul>
+
+    <hr />
+
+    <h2>3. Thay thế Image</h2>
+    <div id="img-container">
+      <img
+        id="image"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/T1_esports_logo.svg/2560px-T1_esports_logo.svg.png"
+        alt="Hình ảnh ban đầu"
+      />
+      <button onclick="replaceElement()">🖼️ Change</button>
+    </div>
+
+    <hr />
+
+    <h2>4. Kiểm tra rỗng</h2>
+    <div class="login-form">
+      <label for="username">Tên đăng nhập:</label>
+      <input type="text" id="username" placeholder="Tên đăng nhập" />
+
+      <label for="password">Mật khẩu:</label>
+      <input type="password" id="password" placeholder="Nhập mật khẩu" />
+
+      <button onclick="validateLogin()">Đăng Nhập</button>
+
+      <div id="message"></div>
+    </div>
+
+    <script>
+      //1
+      function getStyle() {
+        const textElement = document.getElementById("text");
+        const style = window.getComputedStyle(textElement);
+        const color = style.color;
+        const size = style.fontSize;
+
+        document.getElementById(
+          "result"
+        ).innerHTML = `Kết quả Style: Màu: <b>${color}</b>, Cỡ chữ: <b>${size}</b>`;
+      }
+
+      function setStyle() {
+        const textElement = document.getElementById("text");
+        textElement.style.color = "pink";
+        textElement.style.backgroundColor = "#f0fff0";
+        textElement.style.border = "1px solid red";
+        document.getElementById("result").textContent = "Gán style!";
+      }
+
+      //2
+      function changeText() {
+        document.getElementById("title").textContent = "Đã thay đổi!";
+
+        const paragraph = document.querySelector(".description");
+        paragraph.className = "highlight";
+
+        const list = document.getElementById("list");
+        const newLi = document.createElement("li");
+        newLi.textContent = "Đã thêm";
+        list.appendChild(newLi);
+      }
+
+      //3
+      function replaceElement() {
+        const imageElement = document.getElementById("image");
+
+        // Ảnh mới
+        imageElement.src =
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2tnamAgTNYi2nE0I8o2UMowUDwdcfsa27Ew&s";
+        imageElement.alt = "Hình ảnh mới";
+        alert("Đã thay thế hình ảnh T liệt!");
+      }
+
+      //4
+      function validateLogin() {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const messageDiv = document.getElementById("message");
+
+        messageDiv.textContent = "";
+        messageDiv.className = "";
+
+        if (username === "" || password === "") {
+          messageDiv.textContent =
+            "Vui lòng nhập đầy đủ Tên đăng nhập và Mật khẩu.";
+          messageDiv.classList.add("error");
+        } else {
+          messageDiv.textContent = "Thành công!";
+          messageDiv.classList.add("success");
+        }
+      }
+    </script>
+  </body>
+</html>

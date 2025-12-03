@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script lang="javascript" src="demo.js"></script> -->
+  </head>
+  <body>
+    <button id="xc">Xin chao</button>
+
+    <button id="btn1">Nhấn vào đây!!!</button>
+    <script>
+      document.getElementById("btn1").onclick = function () {
+        alert("Sự kiện được kích hoạt.");
+      };
+    </script>
+    <button id="btn2">Đừng nhấn vào đây!!!</button>
+    <form id="form1">
+      <input type="text" id="name" placeholder="Tên">
+      <button type="submit">Gửi</button>
+    </form>
+    <script>
+      document.getElementById("form1").addEventListener("submit", function (event) 
+      {
+        let name=document.getElementById("name").value;
+        if(name==="")
+        {
+          alert("Vui lòng nhập tên!!!");
+          event.preventDefault();
+          return;
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      setTimeout(() => 
+    {
+        console.log("Chay sau 2s");
+    },2000);
+
+    setInterval(() => 
+    {
+        console.log("Chay moi 3s");
+    },3000);
+    </script>
+
+
+</body>
+</html>
