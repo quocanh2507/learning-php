@@ -4,84 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ví dụ DOM</title>
-
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding: 15px;
-        background-color: #f4f4f4;
-      }
-
-      .login-form {
-        max-width: 500px;
-        margin: 35px auto;
-        padding: 30px;
-        border: 1px solid #2812ed;
-        border-radius: 8px;
-        background-color: rgb(18, 209, 243);
-        box-shadow: 0 5px 10px rgba(28, 156, 215, 0.1);
-      }
-      .login-form input {
-        width: 100%;
-        padding: 10px;
-        margin: 8px 0;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        box-sizing: border-box;
-      }
-      .login-form button {
-        background-color: #403d3d;
-        color: white;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        width: 100%;
-        margin-top: 15px;
-      }
-      #message {
-        margin-top: 15px;
-        padding: 10px;
-        border-radius: 4px;
-        font-weight: bold;
-        text-align: center;
-      }
-      .error {
-        color: red;
-        background-color: #ffe8e8;
-      }
-      .success {
-        color: green;
-        background-color: #e8ffe8;
-      }
-
-      #text {
-        color: blue;
-        font-size: 20px;
-        font-weight: bold;
-        margin: 10px 0;
-        padding: 5px;
-        border: 1px solid #ccc;
-      }
-      .highlight {
-        color: red;
-        font-weight: bold;
-      }
-      #img-container {
-        text-align: center;
-        margin-top: 20px;
-      }
-      #image {
-        width: 500px;
-        height: auto;
-        border: 2px solid #333;
-      }
-      hr {
-        margin: 30px 0;
-        border: 0;
-        border-top: 2px dashed #ddd;
-      }
-    </style>
+    <link rel="stylesheet" href="../css/DOM.css" />
   </head>
   <body>
     <h1>DOM</h1>
@@ -111,7 +34,8 @@
     <div id="img-container">
       <img
         id="image"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/T1_esports_logo.svg/2560px-T1_esports_logo.svg.png"
+        src="https://www.pngkit.com/png/detail/200-2004028_team-liquid-logo-png.png"
+
         alt="Hình ảnh ban đầu"
       />
       <button onclick="replaceElement()">🖼️ Change</button>
@@ -172,9 +96,9 @@
 
         // Ảnh mới
         imageElement.src =
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2tnamAgTNYi2nE0I8o2UMowUDwdcfsa27Ew&s";
+          "https://www.kindpng.com/picc/m/739-7394493_gen-g-esports-logo-hd-png-download.png";
         imageElement.alt = "Hình ảnh mới";
-        alert("Đã thay thế hình ảnh T liệt!");
+        alert("Đã thay thế hình ảnh!");
       }
 
       //4
