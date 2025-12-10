@@ -37,7 +37,7 @@ const xinchao = (name) =>
 {
     console.log("Xin chao " + name);
 }
-xinchao("Viet Nam");
+xinchao("Viet Nam hihi");
 
 //ham goi lai
 function test3(n, callback)
