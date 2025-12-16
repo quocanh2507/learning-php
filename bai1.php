@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<div style="text-align:center; font-size:20px; line-height:35px;">
+<div style="text-align:left; font-size:20px; line-height:35px;">
 
 <?php
 for ($i = 1; $i <= 100; $i++) {
